@@ -33,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, GameActivity.class);
+                i.putExtra("selected", selected);
+                startActivity(i);
+            }
+        });
+
     }
 
     @Override
