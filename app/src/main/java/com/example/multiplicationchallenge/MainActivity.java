@@ -1,16 +1,19 @@
 package com.example.multiplicationchallenge;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btnStart, btnSettings, btnHS;
+    ArrayList<Integer> selected = new ArrayList<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, SettingsActivity.class);
+                i.putExtra("set", selected);
                 startActivityForResult(i, 1);
             }
         });
@@ -32,7 +36,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode == RESULT_OK){
+            if (data != null) {
+                selected = data.getIntegerArrayListExtra("selected");
+
+                if(requestCode == 1){
+                    Toast.makeText(MainActivity.this, "Multiples Applied",
+                            Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        }
     }
 }

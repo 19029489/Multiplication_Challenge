@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -39,70 +38,24 @@ public class SettingsActivity extends AppCompatActivity {
         ArrayList<Integer> checked = new ArrayList<Integer>();
         CheckBox checkBoxes[] = {cb1, cb2, cb3, cb4, cb5, cb6, cb7, cb8, cb9, cb10, cb11, cb12};
 
-        for (int a = 0; a < checked.size(); a++){
-            for (int b = 1; b < 13; b++){
-                if (checked.get(a) == b){
-                    if (b == 1){
-                        cb1.setChecked(true);
+        Intent i = getIntent();
+
+        ArrayList<Integer> setChecked = i.getIntegerArrayListExtra("set");
+
+        if (setChecked.size() != 0){
+            for (int a = 0; a < setChecked.size(); a++){
+                for (int b = 1; b < 13; b++){
+                    if (setChecked.get(a) == b){
+                        checkBoxes[b-1].setChecked(true);
                     } else {
-                        cb1.setChecked(false);
-                    }
-                    if (b == 2){
-                        cb2.setChecked(true);
-                    } else {
-                        cb2.setChecked(false);
-                    }
-                    if (b == 3){
-                        cb3.setChecked(true);
-                    } else {
-                        cb3.setChecked(false);
-                    }
-                    if (b == 4){
-                        cb4.setChecked(true);
-                    } else {
-                        cb4.setChecked(false);
-                    }
-                    if (b == 5){
-                        cb5.setChecked(true);
-                    } else {
-                        cb5.setChecked(false);
-                    }
-                    if (b == 6){
-                        cb6.setChecked(true);
-                    } else {
-                        cb6.setChecked(false);
-                    }
-                    if (b == 7){
-                        cb7.setChecked(true);
-                    } else {
-                        cb7.setChecked(false);
-                    }
-                    if (b == 8){
-                        cb8.setChecked(true);
-                    } else {
-                        cb8.setChecked(false);
-                    }if (b == 9){
-                        cb9.setChecked(true);
-                    } else {
-                        cb9.setChecked(false);
-                    }if (b == 10){
-                        cb10.setChecked(true);
-                    } else {
-                        cb10.setChecked(false);
-                    }
-                    if (b == 11){
-                        cb11.setChecked(true);
-                    } else {
-                        cb11.setChecked(false);
-                    }
-                    if (b == 12){
-                        cb12.setChecked(true);
-                    } else {
-                        cb12.setChecked(false);
+                        checkBoxes[b-1].setChecked(false);
                     }
                 }
             }
+        } else {
+            cb1.setChecked(true);
         }
+
 
         btnApply.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,10 +100,10 @@ public class SettingsActivity extends AppCompatActivity {
                 if(checked.size() == 0){
                     Toast.makeText(SettingsActivity.this, "Please select at least one multiple.", Toast.LENGTH_SHORT).show();
                 } else {
-                    Log.i("selected", "" + checked);
-                    Intent i = new Intent(SettingsActivity.this, MainActivity.class);
+                    Intent i = new Intent();
                     i.putExtra("selected", checked);
-                    startActivity(i);
+                    setResult(RESULT_OK, i);
+                    finish();
                 }
 
             }
