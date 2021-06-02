@@ -25,11 +25,21 @@ public class CompletedActivity extends AppCompatActivity {
         btnBack = (Button) findViewById(R.id.btnBack);
         btnSubmit = (Button) findViewById(R.id.btnSubmitScore);
 
+        Intent i = getIntent();
+        int points = i.getIntExtra("score", 0);
+
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (etName.getText().toString().trim().equalsIgnoreCase("")) {
                     etName.setError("Name cannot be blank to submit score");
+                } else {
+                    DBHelper db = new DBHelper(CompletedActivity.this);
+                    db.insertScore(etName.getText().toString(), points);
+                    db.close();
+
+                    Intent i = new Intent(CompletedActivity.this, HighscoreActivity.class);
+                    startActivity(i);
                 }
             }
         });
