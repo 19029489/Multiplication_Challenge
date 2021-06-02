@@ -42,20 +42,21 @@ public class SettingsActivity extends AppCompatActivity {
 
         ArrayList<Integer> setChecked = i.getIntegerArrayListExtra("set");
 
+        for (int e = 0; e < checkBoxes.length; e++){
+            checkBoxes[e].setChecked(false);
+        }
+
         if (setChecked.size() != 0){
             for (int a = 0; a < setChecked.size(); a++){
                 for (int b = 1; b < 13; b++){
                     if (setChecked.get(a) == b){
                         checkBoxes[b-1].setChecked(true);
-                    } else {
-                        checkBoxes[b-1].setChecked(false);
                     }
                 }
             }
         } else {
             cb1.setChecked(true);
         }
-
 
         btnApply.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,33 +70,6 @@ public class SettingsActivity extends AppCompatActivity {
                         checkBoxes[o].setChecked(false);
                     }
                 }
-
-//                if (cb1.isChecked()){
-//                    checked.add(1);
-//                } else if (cb2.isChecked()){
-//                    checked.add(2);
-//                    cb2.setChecked(true);
-//                } else if (cb3.isChecked()) {
-//                    checked.add(3);
-//                } else if (cb4.isChecked()) {
-//                    checked.add(4);
-//                } else if (cb5.isChecked()) {
-//                    checked.add(5);
-//                } else if (cb6.isChecked()) {
-//                    checked.add(6);
-//                } else if (cb7.isChecked()) {
-//                    checked.add(7);
-//                } else if (cb8.isChecked()) {
-//                    checked.add(8);
-//                } else if (cb9.isChecked()) {
-//                    checked.add(9);
-//                } else if (cb10.isChecked()) {
-//                    checked.add(10);
-//                } else if (cb11.isChecked()) {
-//                    checked.add(11);
-//                } else if (cb12.isChecked()) {
-//                    checked.add(12);
-//                }
 
                 if(checked.size() == 0){
                     Toast.makeText(SettingsActivity.this, "Please select at least one multiple.", Toast.LENGTH_SHORT).show();
