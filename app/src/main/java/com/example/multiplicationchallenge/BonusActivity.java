@@ -20,6 +20,7 @@ public class BonusActivity extends AppCompatActivity {
 
         btnYes = (Button) findViewById(R.id.btnYes);
         btnNo = (Button) findViewById(R.id.btnNo);
+        tvScore = (TextView) findViewById(R.id.tvP);
 
         Intent intent = getIntent();
 

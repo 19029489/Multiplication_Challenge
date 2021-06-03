@@ -32,7 +32,7 @@
             android:text="Score: " />
 
         <TextView
-            android:id="@+id/tvScore"
+            android:id="@+id/tvP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30dp" />
