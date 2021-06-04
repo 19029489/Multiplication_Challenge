@@ -54,7 +54,7 @@ public class DBHelper extends SQLiteOpenHelper {
         ArrayList<HighScore> scores = new ArrayList<HighScore>();
 
         String selectQuery = "SELECT " + COLUMN_ID + ","
-                + COLUMN_NAME + ", " + COLUMN_SCORE + " FROM " + TABLE_SCORE;
+                + COLUMN_NAME + ", " + COLUMN_SCORE + " FROM " + TABLE_SCORE + " ORDER BY " + COLUMN_SCORE + " DESC ";
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);

@@ -4,27 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/numbers"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="50dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="10dp"
-        android:layout_gravity="left"
-        android:text="Multiplication" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/roundedbg"
+            android:fontFamily="@font/bubblebobble"
+            android:text="Multiplication"
+            android:textColor="#6300ee"
+            android:textSize="50dp" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="50dp"
-        android:layout_marginRight="10dp"
-        android:layout_gravity="right"
-        android:text="Challenge" />
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/roundedbg"
+            android:fontFamily="@font/bubblebobble"
+            android:textColor="#6300ee"
+            android:textSize="50dp"
+            android:text="Challenge" />
 
     <Button
         android:id="@+id/btnStart"
@@ -33,6 +40,9 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="200dp"
+        android:fontFamily="@font/bubblebobble"
+        android:textColor="@color/white"
+
         android:textSize="20dp"
         android:text="Start Challenge" />
 
@@ -43,6 +53,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="30dp"
+        android:fontFamily="@font/bubblebobble"
+        android:textColor="@color/white"
         android:textSize="20dp"
         android:text="Settings" />
 
@@ -53,6 +65,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="30dp"
+        android:fontFamily="@font/bubblebobble"
+        android:textColor="@color/white"
         android:textSize="20dp"
         android:text="HighScores" />
 

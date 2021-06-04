@@ -34,7 +34,7 @@ public class ScoresArrayAdapter extends ArrayAdapter<HighScore> {
         HighScore score = scores.get(position);
 
         tvNames.setText("" + score.getName());
-        tvScores.setText(score.getScore());
+        tvScores.setText("" + score.getScore());
 
         return rowView;
     }

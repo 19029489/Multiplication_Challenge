@@ -64,6 +64,7 @@ public class GameActivity extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if(etAns.getText().toString().trim().equalsIgnoreCase("")){
                     etAns.setError("Answer cannot be blank");
                 } else {
@@ -82,8 +83,13 @@ public class GameActivity extends AppCompatActivity {
                                 i.putExtra("score", points);
                                 startActivityForResult(i, 1);
 
-                            } else {
+                            } else if (al.isEmpty() == false){
                                 question = randomize(al);
+
+                            } else if (al.isEmpty() == true && incorrect.isEmpty() == true){
+                                Intent i = new Intent(GameActivity.this, CompletedActivity.class);
+                                i.putExtra("score", points);
+                                startActivity(i);
                             }
 
                         } else {
@@ -99,8 +105,13 @@ public class GameActivity extends AppCompatActivity {
                                 i.putExtra("score", points);
                                 startActivityForResult(i, 1);
 
-                            } else {
+                            } else if (al.isEmpty() == false){
                                 question = randomize(al);
+
+                            } else if (al.isEmpty() == true && incorrect.isEmpty() == true){
+                                Intent i = new Intent(GameActivity.this, CompletedActivity.class);
+                                i.putExtra("score", points);
+                                startActivity(i);
                             }
 
                         }
@@ -141,6 +152,7 @@ public class GameActivity extends AppCompatActivity {
                     }
 
                 }
+                etAns.setText("");
             }
         });
 

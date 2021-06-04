@@ -74,6 +74,8 @@ public class SettingsActivity extends AppCompatActivity {
                 if(checked.size() == 0){
                     Toast.makeText(SettingsActivity.this, "Please select at least one multiple.", Toast.LENGTH_SHORT).show();
                 } else {
+                    Toast.makeText(SettingsActivity.this, "Multiples Applied",
+                            Toast.LENGTH_LONG).show();
                     Intent i = new Intent();
                     i.putExtra("selected", checked);
                     setResult(RESULT_OK, i);

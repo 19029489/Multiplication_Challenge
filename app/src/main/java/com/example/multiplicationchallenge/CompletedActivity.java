@@ -27,6 +27,7 @@ public class CompletedActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         int points = i.getIntExtra("score", 0);
+        tvScore.setText("" + points);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
